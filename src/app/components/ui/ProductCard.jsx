@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useCart } from '../../lib/context/CartContext';
 import { Heart, ShoppingCart, Eye } from 'lucide-react';
+import Image from 'next/image';
 
 export default function ProductCard({ product }) {
   const { addToCart } = useCart();
@@ -39,9 +40,10 @@ export default function ProductCard({ product }) {
       <div className="relative overflow-hidden">
         <Link href={`/products/${product.slug}`}>
           <div className="relative h-64 w-full bg-gray-100">
-            <img
+
+            <Image
               src={product.images?.[0]?.src || "/placeholder-image.jpg"}
-              alt={product.name}
+              alt={product.name} width={250} height={250}
               className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${
                 imageLoaded ? 'opacity-100' : 'opacity-0'
               }`}

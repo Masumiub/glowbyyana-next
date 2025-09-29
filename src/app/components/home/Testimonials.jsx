@@ -2,6 +2,7 @@
 'use client';
 import React, { useState } from 'react';
 import { Star, Quote, ArrowLeft, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 
 const testimonials = [
   {
@@ -103,7 +104,7 @@ export default function Testimonials() {
               {/* Avatar */}
               <div className="flex-shrink-0">
                 <div className="relative">
-                  <img
+                  <Image width={50} height={50}
                     src={testimonials[currentTestimonial].avatar}
                     alt={testimonials[currentTestimonial].name}
                     className="w-24 h-24 rounded-full object-cover border-4 border-[#F6DFC4]"
@@ -132,7 +133,7 @@ export default function Testimonials() {
                 </div>
 
                 {/* Testimonial Text */}
-                <blockquote className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-6 italic">
+                <blockquote className="text-xl  text-gray-700 leading-relaxed mb-6 italic">
                   "{testimonials[currentTestimonial].text}"
                 </blockquote>
 
@@ -188,7 +189,7 @@ export default function Testimonials() {
               className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 hover:border-[#F6DFC4]"
             >
               <div className="flex items-center gap-3 mb-4">
-                <img
+                <Image width={50} height={50}
                   src={testimonial.avatar}
                   alt={testimonial.name}
                   className="w-12 h-12 rounded-full object-cover"

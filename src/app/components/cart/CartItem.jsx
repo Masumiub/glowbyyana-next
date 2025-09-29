@@ -28,9 +28,9 @@ export default function CartItem({ item }) {
           {/* Product Image */}
           <Link href={`/products/${item.slug}`} className="flex-shrink-0">
             <div className="w-20 h-20 bg-base-200 rounded-lg overflow-hidden">
-              {item.image ? (
-                <img
-                  src={item.image}
+              {item.image ? ( 
+                <Image 
+                  src={item.image} width={100} height={100}
                   alt={item.name}
                   className="w-full h-full object-cover"
                 />

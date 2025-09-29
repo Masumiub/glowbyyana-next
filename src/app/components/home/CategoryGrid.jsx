@@ -1,6 +1,6 @@
 // components/home/CategoryGrid.jsx
 import Link from 'next/link';
-import { categories } from '../../lib/utils/categories';
+import { categories } from '@/app/lib/utils/categories';
 import { 
   Sparkles, 
   Droplets, 

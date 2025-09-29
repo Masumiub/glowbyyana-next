@@ -40,7 +40,7 @@ export default function HeroSection() {
                 <Image
                   src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
                   alt="Skincare products"
-                  fill
+                  fill sizes={250}
                   className="object-cover rounded-lg shadow-2xl"
                   priority
                 />
@@ -51,7 +51,7 @@ export default function HeroSection() {
                 <Image
                   src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
                   alt="Luxury skincare"
-                  fill
+                  fill sizes={250}
                   className="object-cover rounded-lg shadow-2xl"
                 />
               </div>
@@ -61,7 +61,7 @@ export default function HeroSection() {
                 <Image
                   src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
                   alt="Beauty products"
-                  fill
+                  fill sizes={250}
                   className="object-cover rounded-lg shadow-2xl"
                 />
               </div>
@@ -71,7 +71,7 @@ export default function HeroSection() {
                 <Image
                   src="https://images.unsplash.com/photo-1594035910387-fea47794261f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
                   alt="Skincare routine"
-                  fill
+                  fill sizes={250}
                   className="object-cover rounded-lg shadow-2xl"
                 />
               </div>

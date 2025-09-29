@@ -4,7 +4,7 @@ import api from './woocommerce';
 
 export async function getLatestProducts(limit = 8) {
   try {
-    console.log('Fetching latest products from:', process.env.WOOCOMMERCE_URL);
+    //console.log('Fetching latest products from:', process.env.WOOCOMMERCE_URL);
     
     const response = await api.get("products", {
       per_page: limit,

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useCart } from '../../lib/context/CartContext';
 import { ShoppingCart, Heart, Share2, Truck, RotateCcw, Shield, Plus, Minus } from 'lucide-react';
+import Image from 'next/image';
 
 export default function ProductDetails({ product }) {
   const [selectedImage, setSelectedImage] = useState(0);
@@ -50,7 +51,7 @@ export default function ProductDetails({ product }) {
         <div className="space-y-6">
           {/* Main Image */}
           <div className="aspect-square overflow-hidden rounded-3xl bg-gray-50 shadow-lg relative group">
-            <img
+            <Image height={600} width={600}
               src={mainImage}
               alt={product.name}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

@@ -195,6 +195,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 export default function SearchBar() {
   const [query, setQuery] = useState('');
@@ -325,7 +326,7 @@ export default function SearchBar() {
                       className="flex items-center gap-3 p-2 hover:bg-gray-100 rounded-lg transition-colors group"
                     >
                       <div className="w-10 h-10 bg-gray-200 rounded overflow-hidden flex-shrink-0">
-                        <img
+                        <Image width={30} height={30}
                           src={product.images?.[0]?.src || '/placeholder-image.jpg'}
                           alt={product.name}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform"

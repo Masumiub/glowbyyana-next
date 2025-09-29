@@ -3,8 +3,8 @@ import ProductCard from '@/app/components/ui/ProductCard';
 import { getCategoryBySlug, getAllCategories } from '@/app/lib/api/categories';
 import { getProductsByCategory } from '@/app/lib/api/products';
 
-export const dynamic = 'force-dynamic'; // Add this at the top
-export const revalidate = 0; // Disable caching
+// export const dynamic = 'force-dynamic'; // Add this at the top
+// export const revalidate = 0; // Disable caching
 
 
 export async function generateStaticParams() {

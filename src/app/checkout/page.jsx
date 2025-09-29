@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useCart } from '../lib/context/CartContext';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 export default function CheckoutPage() {
   const { items, getCartTotal, clearCart, getCartItemsCount } = useCart();
@@ -372,8 +373,8 @@ const redirectToWordPressCheckout = async () => {
                     <div className="flex items-center gap-3">
                       <div className="w-12 h-12 bg-base-200 rounded overflow-hidden">
                         {item.image && (
-                          <img 
-                            src={item.image} 
+                          <Image 
+                            src={item.image} width={100} height={100}
                             alt={item.name}
                             className="w-full h-full object-cover"
                           />
