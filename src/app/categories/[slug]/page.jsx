@@ -1,7 +1,8 @@
 // app/categories/[slug]/page.js
+// app/categories/[slug]/page.js
 import ProductCard from '@/app/components/ui/ProductCard';
 import { getCategoryBySlug, getAllCategories } from '@/app/lib/api/categories';
-import { getProductsByCategory } from '@/app/lib/api/products';
+import { getProductsByCategoryPaginated, getProductsCountByCategory } from '@/app/lib/api/products';
 import Pagination from '@/app/components/ui/Pagination';
 
 export const dynamic = 'force-dynamic';
@@ -38,9 +39,8 @@ export async function generateMetadata({ params }) {
 
 export default async function CategoryPage({ params, searchParams }) {
   const { slug } = await params;
-  const page = await parseInt(searchParams.page) || 1;
+  const page = parseInt(searchParams.page) || 1;
   const limit = 10;
-  const skip = (page - 1) * limit;
   
   try {
     // Fetch category first
@@ -56,11 +56,15 @@ export default async function CategoryPage({ params, searchParams }) {
       );
     }
 
-    // Fetch paginated products
-    const allProducts = await getProductsByCategory(category.id, 1000); // Get all for pagination
-    const totalProducts = allProducts.length;
+    // Parallel fetch - much faster!
+    const [products, totalProducts] = await Promise.all([
+      getProductsByCategoryPaginated(category.id, page, limit),
+      getProductsCountByCategory(category.id)
+    ]);
+
     const totalPages = Math.ceil(totalProducts / limit);
-    const paginatedProducts = allProducts.slice(skip, skip + limit);
+    const startItem = (page - 1) * limit + 1;
+    const endItem = Math.min(page * limit, totalProducts);
 
     return (
       <div className="w-full md:max-w-7xl mx-auto px-4 py-8">
@@ -71,7 +75,7 @@ export default async function CategoryPage({ params, searchParams }) {
           )}
         </div>
         
-        {paginatedProducts.length === 0 ? (
+        {products.length === 0 ? (
           <div className="text-center py-16">
             <div className="text-6xl mb-4">🔍</div>
             <h2 className="text-2xl font-bold mb-2">No Products Found</h2>
@@ -89,13 +93,13 @@ export default async function CategoryPage({ params, searchParams }) {
           <>
             <div className="flex justify-between items-center mb-6">
               <p className="text-gray-600">
-                Showing {paginatedProducts.length} of {totalProducts} products in {category.name}
+                Showing {startItem}-{endItem} of {totalProducts} products in {category.name}
                 {page > 1 && ` (Page ${page} of ${totalPages})`}
               </p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
-              {paginatedProducts.map((product) => (
+              {products.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>
