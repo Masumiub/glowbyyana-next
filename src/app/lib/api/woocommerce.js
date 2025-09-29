@@ -7,7 +7,8 @@ const api = new WooCommerceRestApi({
   consumerKey: process.env.WC_CONSUMER_KEY,
   consumerSecret: process.env.WC_CONSUMER_SECRET,
   version: "wc/v3",
-  timeout: 10000,
+  timeout: 30000,
+  queryStringAuth: true
 });
 
 export default api;
