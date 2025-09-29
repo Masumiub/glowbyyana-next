@@ -2,6 +2,7 @@
 import { getAllProducts } from '@/app/lib/api/products';
 import { skinTypes } from '@/app/lib/utils/skinTypes';
 import ProductCard from '@/app/components/ui/ProductCard';
+import Link from 'next/link';
 
 export async function generateStaticParams() {
   return skinTypes.map(skinType => ({
@@ -91,11 +92,11 @@ export default async function SkinTypePage({ params }) {
             <div className="text-6xl mb-4">🔍</div>
             <h2 className="text-2xl font-bold mb-2">No products found</h2>
             <p className="text-gray-600 mb-4">
-              We're working on adding more products for {skinType.name}.
+              Were working on adding more products for {skinType.name}.
             </p>
-            <a href="/categories" className="btn btn-primary">
+            <Link href="/" className="btn btn-primary">
               Browse All Categories
-            </a>
+            </Link>
           </div>
         ) : (
           <>
