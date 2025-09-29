@@ -1,55 +1,58 @@
 // lib/api/products.js
 import api from './woocommerce';
 
-
 // Global products cache
 let allProductsCache = null;
 let allProductsTimestamp = 0;
 const ALL_PRODUCTS_CACHE_DURATION = 5 * 60 * 1000; 
 
-// export async function getAllProducts(params = {}) {
-//   // Return cached products if available
-//   if (allProductsCache && (Date.now() - allProductsTimestamp) < ALL_PRODUCTS_CACHE_DURATION) {
-//     console.log('📦 Returning cached all products');
-//     return allProductsCache;
-//   }
-
-//   try {
-//     console.log('🔄 Fetching all products from WooCommerce...');
-    
-//     const response = await api.get("products", {
-//       per_page: 100,
-//       status: 'publish',
-//       ...params
-//     });
-
-//     // Cache the successful response
-//     allProductsCache = response.data;
-//     allProductsTimestamp = Date.now();
-    
-//     console.log(`✅ Successfully fetched ${allProductsCache.length} products`);
-//     return allProductsCache;
-    
-//   } catch (error) {
-//     console.error('❌ Failed to fetch products:', error.message);
-    
-//     // In production, return fallback data
-//     if (process.env.NODE_ENV === 'production') {
-//       console.log('🔄 Using fallback products data');
-//       return fallbackProducts;
-//     }
-    
-//     throw error;
-//   }
-// }
-
-// Cache for category products
-
 
 const categoryCache = new Map();
 const CACHE_DURATION = 10 * 60 * 1000; // 10 minutes
 
-export async function getProductsByCategory(categoryId, limit = 10) {
+// export async function getProductsByCategory(categoryId, limit = 10) {
+//   // Check cache first
+//   const cacheKey = `category-${categoryId}-${limit}`;
+//   const cached = categoryCache.get(cacheKey);
+  
+//   if (cached && (Date.now() - cached.timestamp) < CACHE_DURATION) {
+//     console.log(`📦 Returning cached products for category ${categoryId}`);
+//     return cached.products;
+//   }
+
+//   try {
+//     console.log(`🔄 Fetching products for category ${categoryId}`);
+    
+//     // Fetch all products once and filter by category
+//     const allProducts = await getAllProducts();
+    
+//     // Filter products by category ID
+//     const categoryProducts = allProducts.filter(product => 
+//       product.categories?.some(cat => cat.id === categoryId)
+//     ).slice(0, limit);
+
+//     console.log(`✅ Found ${categoryProducts.length} products for category ${categoryId}`);
+
+//     // Cache the results
+//     categoryCache.set(cacheKey, {
+//       products: categoryProducts,
+//       timestamp: Date.now()
+//     });
+
+//     return categoryProducts;
+//   } catch (error) {
+//     console.error(`❌ Error fetching products for category ${categoryId}:`, error);
+    
+//     // // Return filtered fallback data
+//     // const fallback = fallbackProducts.filter(product =>
+//     //   product.categories?.some(cat => cat.id === categoryId)
+//     // ).slice(0, limit);
+    
+//     // return fallback;
+//   }
+// }
+
+export async function getProductsByCategory(categoryId, limit = 1000) { // Increased default limit for pagination
   // Check cache first
   const cacheKey = `category-${categoryId}-${limit}`;
   const cached = categoryCache.get(cacheKey);
@@ -81,13 +84,7 @@ export async function getProductsByCategory(categoryId, limit = 10) {
     return categoryProducts;
   } catch (error) {
     console.error(`❌ Error fetching products for category ${categoryId}:`, error);
-    
-    // // Return filtered fallback data
-    // const fallback = fallbackProducts.filter(product =>
-    //   product.categories?.some(cat => cat.id === categoryId)
-    // ).slice(0, limit);
-    
-    // return fallback;
+    return [];
   }
 }
 
@@ -140,7 +137,7 @@ export async function getLatestProducts(limit = 8) {
 
 
 
-export async function getAllProducts(limit = 50) { //params = {}
+export async function getAllProducts(limit = 100) { //params = {}
   try {
     let allProducts = [];
     let page = 1;
