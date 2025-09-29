@@ -1,5 +1,5 @@
 // app/api/skin-type/[slug]/products/route.js
-import { getAllProducts } from '../../../../../lib/api/products';
+import { getAllProducts } from '@/app/lib/api/products';
 
 export async function GET(request, { params }) {
   try {
