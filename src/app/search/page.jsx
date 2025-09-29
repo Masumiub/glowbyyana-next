@@ -2,6 +2,7 @@
 import { getAllProducts } from '@/app/lib/api/products';
 import { getAllCategories } from '@/app/lib/api/categories';
 import ProductCard from '@/app/components/ui/ProductCard';
+import Link from 'next/link';
 
 export default async function SearchPage({ searchParams }) {
   const { q } = await searchParams;
@@ -48,9 +49,9 @@ export default async function SearchPage({ searchParams }) {
             <p className="text-gray-600 mb-4">
               Try different keywords or browse our categories
             </p>
-            <a href="/categories" className="btn btn-primary">
+            <Link href="/" className="btn btn-primary">
               Browse Categories
-            </a>
+            </Link>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">

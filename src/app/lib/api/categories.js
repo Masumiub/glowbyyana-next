@@ -1,7 +1,21 @@
 import api from './woocommerce';
 
 
+// Cache for categories
+let categoriesCache = null;
+let categoriesTimestamp = 0;
+const CATEGORIES_CACHE_DURATION = 10 * 60 * 1000;
+
 export async function getAllCategories() {
+
+
+    // Return cached categories if available
+  if (categoriesCache && (Date.now() - categoriesTimestamp) < CATEGORIES_CACHE_DURATION) {
+    console.log('📦 Returning cached categories');
+    return categoriesCache;
+  }
+
+  
   try {
     let allCategories = [];
     let page = 1;

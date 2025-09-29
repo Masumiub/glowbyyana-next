@@ -91,7 +91,7 @@ export default async function SkinTypePage({ params }) {
               Check back soon or browse our current collection.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/categories" className="btn btn-primary">
+              <Link href="/" className="btn btn-primary">
                 Browse All Categories
               </Link>
               <Link href="/search" className="btn btn-outline">
@@ -127,7 +127,7 @@ export default async function SkinTypePage({ params }) {
           Were currently updating our product recommendations for {skinType.name.toLowerCase()}.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/categories" className="btn btn-primary">
+          <Link href="/" className="btn btn-primary">
             Browse Categories
           </Link>
           <Link href="/" className="btn btn-outline">
