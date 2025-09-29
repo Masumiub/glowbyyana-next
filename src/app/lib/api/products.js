@@ -153,7 +153,7 @@ export async function getLatestProducts(limit = 8) {
 
 
 
-export async function getAllProducts(limit = 100) { //params = {}
+export async function getAllProducts(params = {}) { //params = {}
   try {
     let allProducts = [];
     let page = 1;
@@ -162,10 +162,10 @@ export async function getAllProducts(limit = 100) { //params = {}
     // Fetch all pages of products
     while (hasMore) {
       const response = await api.get("products", {
-        per_page: limit, // WooCommerce max per page is 100
+        per_page: 100, // WooCommerce max per page is 100
         page: page,
         status: 'publish',
-        //...params
+        ...params
       });
 
       if (response.data && response.data.length > 0) {
