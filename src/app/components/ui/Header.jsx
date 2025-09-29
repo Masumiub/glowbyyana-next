@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useCart } from '@/app/lib/context/CartContext';
 import SearchBar from './SearchBar';
 import { categories } from '@/app/lib/utils/categories';
+import { House, Mails } from 'lucide-react';
 
 export default function Header() {
     const { getCartItemsCount } = useCart();
@@ -70,7 +71,7 @@ export default function Header() {
                                 <li><a>Essence</a></li>
                             </ul>
                         </div>
-                        <a className="btn btn-ghost">Home</a>
+                        <Link className="btn btn-ghost" href='/'><House /></Link>
                     </div>
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">
@@ -90,7 +91,7 @@ export default function Header() {
                         </ul>
                     </div>
                     <div className="navbar-end ">
-                        <a className="btn">Contact</a>
+                        <Mails />
                     </div>
                 </div>
             </div>
