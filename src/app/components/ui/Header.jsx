@@ -1,9 +1,9 @@
 // components/ui/Header.jsx
 'use client';
 import Link from 'next/link';
-import { useCart } from '../../lib/context/CartContext';
+import { useCart } from '@/app/lib/context/CartContext';
 import SearchBar from './SearchBar';
-import { categories } from '../../lib/utils/categories';
+import { categories } from '@/app/lib/utils/categories';
 
 export default function Header() {
     const { getCartItemsCount } = useCart();

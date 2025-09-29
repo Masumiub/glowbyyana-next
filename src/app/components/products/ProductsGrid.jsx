@@ -1,7 +1,7 @@
 // components/products/ProductsGrid.jsx
 'use client';
 import React, { useState, useEffect } from 'react';
-import ProductCard from '../ui/ProductCard';
+import ProductCard from '@/app/ui/ProductCard';
 
 export default function ProductsGrid({ categorySlug }) {
   const [products, setProducts] = useState([]);
