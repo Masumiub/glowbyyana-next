@@ -132,7 +132,7 @@ export const categories = [
   {
     id: 'bath-body',
     name: 'BATH & BODY',
-    slug: 'bath-body',
+    slug: 'body-and-bath',
     icon: '🛁',
     description: 'Body care essentials',
     component: Bath
