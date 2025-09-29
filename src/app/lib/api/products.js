@@ -49,7 +49,7 @@ const ALL_PRODUCTS_CACHE_DURATION = 5 * 60 * 1000;
 const categoryCache = new Map();
 const CACHE_DURATION = 10 * 60 * 1000; // 10 minutes
 
-export async function getProductsByCategory(categoryId, limit = 100) {
+export async function getProductsByCategory(categoryId, limit = 10) {
   // Check cache first
   const cacheKey = `category-${categoryId}-${limit}`;
   const cached = categoryCache.get(cacheKey);

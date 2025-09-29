@@ -16,7 +16,7 @@ const skinTypeCategoryMap = {
   'damaged-skin': 'damaged-skin'
 };
 
-export async function getProductsBySkinType(skinTypeSlug, limit = 100) {
+export async function getProductsBySkinType(skinTypeSlug, limit = 10) {
   // Check cache first
   const cacheKey = `skin-type-${skinTypeSlug}`;
   const cached = skinTypeCache.get(cacheKey);
@@ -73,7 +73,7 @@ export async function getProductsBySkinType(skinTypeSlug, limit = 100) {
 }
 
 // Fallback to text-based search if category approach fails
-async function fallbackTextSearch(skinTypeSlug, limit = 100) {
+async function fallbackTextSearch(skinTypeSlug, limit = 10) {
   console.log(`🔄 Using fallback text search for ${skinTypeSlug}`);
   
   const searchConfig = {
