@@ -1,6 +1,6 @@
 // app/products/[slug]/page.js
 import ProductDetails from '@/app/components/products/ProductDetails';
-import { getProductBySlug, getAllProducts } from '../../lib/api/products';
+import { getProductBySlug, getAllProducts } from '@/app/lib/api/products';
 
 export async function generateStaticParams() {
   const products = await getAllProducts({ per_page: 100 });

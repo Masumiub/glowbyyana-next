@@ -1,6 +1,6 @@
 // app/api/categories/products/route.js
-import { getCategoryBySlug } from '../../../../lib/api/categories';
-import { getProductsByCategory } from '../../../../lib/api/products';
+import { getCategoryBySlug } from '@/app/lib/api/categories';
+import { getProductsByCategory } from '@/app/lib/api/products';
 
 export async function GET(request) {
   try {

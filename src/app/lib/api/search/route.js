@@ -103,8 +103,8 @@
 
 
 // app/api/search/route.js
-import { getAllProducts } from '../../../lib/api/products';
-import { getAllCategories } from '../../../lib/api/categories';
+import { getAllProducts } from '@/app/lib/api/products';
+import { getAllCategories } from '@/app/lib/api/categories';
 
 export async function GET(request) {
   try {

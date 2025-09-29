@@ -1,5 +1,5 @@
 // app/api/products/latest/route.js
-import { getLatestProducts } from '../../../../lib/api/products';
+import { getLatestProducts } from '@/app/lib/api/products';
 
 export async function GET() {
   try {

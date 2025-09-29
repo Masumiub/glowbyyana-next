@@ -1,7 +1,7 @@
 // app/search/page.js
-import { getAllProducts } from '../lib/api/products';
-import { getAllCategories } from '../lib/api/categories';
-import ProductCard from '../components/ui/ProductCard';
+import { getAllProducts } from '@/app/lib/api/products';
+import { getAllCategories } from '@/app/lib/api/categories';
+import ProductCard from '@/app/components/ui/ProductCard';
 
 export default async function SearchPage({ searchParams }) {
   const { q } = await searchParams;

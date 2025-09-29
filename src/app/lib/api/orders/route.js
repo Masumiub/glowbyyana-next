@@ -1,5 +1,5 @@
 // app/api/orders/route.js
-import api from '../../../lib/api/woocommerce';
+import api from '@/app/lib/api/woocommerce';
 
 export async function POST(request) {
   try {

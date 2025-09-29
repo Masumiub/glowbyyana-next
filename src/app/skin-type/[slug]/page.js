@@ -1,7 +1,7 @@
 // app/skin-type/[slug]/page.js
-import { getAllProducts } from '../../lib/api/products';
-import { skinTypes } from '../../lib/utils/skinTypes';
-import ProductCard from '../../components/ui/ProductCard';
+import { getAllProducts } from '@/app/lib/api/products';
+import { skinTypes } from '@/app/lib/utils/skinTypes';
+import ProductCard from '@/app/components/ui/ProductCard';
 
 export async function generateStaticParams() {
   return skinTypes.map(skinType => ({
@@ -77,7 +77,7 @@ export default async function SkinTypePage({ params }) {
     console.log(`✅ Skin type "${skinType.name}": Found ${filteredProducts.length} products`);
 
     return (
-      <div className="container mx-auto px-4 py-8">
+      <div className="w-full md:w-7xl mx-auto px-4 py-8">
         <div className="text-center mb-8">
           <div className="text-6xl mb-4">{skinType.icon}</div>
           <h1 className="text-4xl font-bold mb-4">{skinType.name}</h1>

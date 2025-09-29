@@ -1,7 +1,7 @@
 // app/categories/[slug]/page.js
 import ProductCard from '@/app/components/ui/ProductCard';
-import { getCategoryBySlug, getAllCategories } from '../../lib/api/categories';
-import { getProductsByCategory } from '../../lib/api/products';
+import { getCategoryBySlug, getAllCategories } from '@/app/lib/api/categories';
+import { getProductsByCategory } from '@/app/lib/api/products';
 
 
 export async function generateStaticParams() {
