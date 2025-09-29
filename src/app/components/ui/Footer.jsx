@@ -3,7 +3,7 @@ import React from 'react'
 export default function Footer() {
     return (
         <div className='bg-neutral text-neutral-content mt-20'>
-        <footer className="footer sm:footer-horizontal  grid-rows-2 p-10 w-full md:w-7xl mx-auto">
+        {/* <footer className="footer sm:footer-horizontal  grid-rows-2 p-10 w-full md:w-7xl mx-auto">
             <nav>
                 <h6 className="footer-title">Services</h6>
                 <a className="link link-hover">Branding</a>
@@ -45,7 +45,7 @@ export default function Footer() {
                 <a className="link link-hover">iPhone</a>
                 <a className="link link-hover">Android</a>
             </nav>
-        </footer>
+        </footer> */}
         </div>
     )
 }

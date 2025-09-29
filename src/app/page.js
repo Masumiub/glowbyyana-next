@@ -35,10 +35,10 @@ export default async function HomePage() {
       <div>
         <HeroSection />
         <CategoryGrid categories={allCategories} />
-        <SkinTypeGrid />
-        <LatestProducts products={products} />
-        <Testimonials />
-        <FAQs />
+<SkinTypeGrid /> 
+<LatestProducts products={products} />
+<Testimonials />
+ <FAQs />
       </div>
     );
   } catch (error) {

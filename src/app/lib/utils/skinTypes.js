@@ -71,3 +71,14 @@ export const skinTypes = [
     color: 'from-red-50 to-red-100'
   }
 ];
+
+
+// Helper function to get skin type by WooCommerce category
+export function getSkinTypeByWooCommerceSlug(wooCommerceSlug) {
+  return skinTypes.find(skinType => skinType.wooCommerceSlug === wooCommerceSlug);
+}
+
+// Helper function to get all WooCommerce category slugs for skin types
+export function getAllSkinTypeWooCommerceSlugs() {
+  return skinTypes.map(skinType => skinType.wooCommerceSlug);
+}

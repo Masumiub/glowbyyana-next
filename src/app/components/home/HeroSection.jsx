@@ -6,9 +6,10 @@ export default function HeroSection() {
   return (
     <section className="hero py-20 bg-white">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Left Content */}
-          <div className="flex-1 text-left max-w-2xl">
+          <div className="flex-1 text-left w-full md:w-1/2">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-black leading-tight">
               Your Trusted Skincare Guide
             </h1>
@@ -33,8 +34,8 @@ export default function HeroSection() {
           </div>
 
           {/* Right Images Grid */}
-          <div className="flex-1 relative">
-            <div className="grid grid-cols-2 gap-4 max-w-md mx-auto lg:max-w-none">
+          <div className="flex-1  w-full md:w-1/2">
+            <div className="grid grid-cols-2 gap-4 max-w-sm mx-auto lg:max-w-none">
               {/* Image 1 */}
               <div className="relative h-64 w-full transform rotate-3 hover:rotate-0 transition-transform duration-500">
                 <Image
@@ -78,9 +79,11 @@ export default function HeroSection() {
             </div>
             
             {/* Decorative Elements */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#F6DFC4] rounded-full opacity-80 -z-10"></div>
-            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-black rounded-full opacity-5 -z-10"></div>
+            {/* <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#F6DFC4] rounded-full opacity-80 -z-10"></div>
+            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-black rounded-full opacity-5 -z-10"></div> */}
           </div>
+
+
         </div>
       </div>
     </section>

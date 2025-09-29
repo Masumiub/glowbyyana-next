@@ -11,13 +11,13 @@ export default function Header() {
 
     return (
         <>
-            <header className="bg-black text-white shadow-sm border-b-1 border-gray-300">
+            <header className="bg-white text-black shadow-sm border-b-1 border-gray-300">
 
                 <div className="w-full md:max-w-7xl mx-auto px-4">
                     <div className="flex items-center justify-between py-4">
 
                         <div className='hidden md:block'>
-                            {/* Logo */}
+
                             <Link href="/" className="text-xl">
                                 <div className='flex flex-col justify-center items-center'>
                                     <h1>GLOW</h1>
@@ -27,14 +27,14 @@ export default function Header() {
                         </div>
 
                         <div>
-                            {/* Search Bar */}
+
                             <div className="flex-1 max-w-4xl">
                                 <SearchBar />
                             </div>
                         </div>
 
                         <div>
-                            {/* Cart & Navigation */}
+                            
                             <div className="flex items-center gap-4">
                                 <Link href="/cart" className="btn btn-ghost btn-circle relative">
                                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

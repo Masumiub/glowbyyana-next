@@ -5,7 +5,7 @@ import api from './woocommerce';
 // Global products cache
 let allProductsCache = null;
 let allProductsTimestamp = 0;
-const ALL_PRODUCTS_CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
+const ALL_PRODUCTS_CACHE_DURATION = 5 * 60 * 1000; 
 
 // export async function getAllProducts(params = {}) {
 //   // Return cached products if available
