@@ -2,6 +2,10 @@
 import ProductDetails from '@/app/components/products/ProductDetails';
 import { getProductBySlug, getAllProducts } from '@/app/lib/api/products';
 
+
+export const dynamic = 'force-dynamic'; // Add this at the top
+export const revalidate = 0; // Disable caching
+
 export async function generateStaticParams() {
   const products = await getAllProducts({ per_page: 100 });
   

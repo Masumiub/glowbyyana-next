@@ -9,6 +9,10 @@ import SkinTypeGrid from '@/app/components/home/SkinTypeGrid';
 import Testimonials from '@/app/components/home/Testimonials';
 import FAQs from '@/app/components/home/FAQs';
 
+
+export const dynamic = 'force-dynamic'; // Add this at the top
+export const revalidate = 0; // Disable caching
+
 export default async function HomePage() {
   // Fetch data on the server
   const [latestProducts, bestSellers, categories] = await Promise.all([
