@@ -90,7 +90,7 @@ export default function Header() {
                             }
                         </ul>
                     </div>
-                    <div className="navbar-end ">
+                    <div className="navbar-end pr-4">
                         <Mails />
                     </div>
                 </div>
