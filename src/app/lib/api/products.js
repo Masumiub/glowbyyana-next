@@ -1,4 +1,4 @@
-// lib/api/products.js
+//lib/api/products.js
 import api from './woocommerce';
 
 // Global products cache
@@ -105,24 +105,9 @@ export async function getProductsCountByCategory(categoryId) {
 }
 
 
-// export async function getBestSellers(limit = 8) {
-//   try {
-//     const response = await api.get("products", {
-//       per_page: limit,
-//       orderby: 'popularity',
-//       order: 'desc',
-//       status: 'publish'
-//     });
-//     return response.data;
-//   } catch (error) {
-//     console.error('Error fetching best sellers:', error);
-//     throw error;
-//   }
-// }
-
 export async function getLatestProducts(limit = 8) {
   try {
-    //console.log('Fetching latest products from:', process.env.WOOCOMMERCE_URL);
+    
     
     const response = await api.get("products", {
       per_page: limit,
@@ -152,7 +137,6 @@ export async function getLatestProducts(limit = 8) {
 }
 
 
-
 export async function getAllProducts(params = {}) { //params = {}
   try {
     let allProducts = [];
@@ -162,7 +146,7 @@ export async function getAllProducts(params = {}) { //params = {}
     // Fetch all pages of products
     while (hasMore) {
       const response = await api.get("products", {
-        per_page: 100, // WooCommerce max per page is 100
+        per_page: 50, // WooCommerce max per page is 100
         page: page,
         status: 'publish',
         ...params
@@ -173,7 +157,7 @@ export async function getAllProducts(params = {}) { //params = {}
         page++;
         
         // If we got less than 100 products, we've reached the end
-        if (response.data.length < 100) {
+        if (response.data.length < 50) {
           hasMore = false;
         }
       } else {
@@ -188,8 +172,6 @@ export async function getAllProducts(params = {}) { //params = {}
     return [];
   }
 }
-
-
 
 
 export async function getProductBySlug(slug) {
